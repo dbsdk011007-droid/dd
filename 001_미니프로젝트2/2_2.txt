@@ -1,0 +1,26 @@
+1. 이미지 저장
+일단 그냥 저장누르면 다운로드에 들어감.
+RenameFile이랑 MoveFile 사용
+누적판매량은 recordMonth 검색해서 따기
+
+
+2. 엑셀에 이미지 삽입
+3. 폰트 색상
+
+
+4. 왼쪽/오른쪽 브랜드 클릭 로직
+5. 추출할 데이터가 없을 경우 오류남
+
+
+'//div[@id=\'finder_newcar\']/div[1]/div[1]/ul/li[1]/button/span'
+'//div[@id=\'finder_newcar\']/div[1]/div[1]/ul/li[2]/button/span'
+'//div[@id=\'finder_newcar\']/div[1]/div[1]/ul/li/button/span[contains(.,\''+this.i_ItemBrand+'\')]'
+
+
+'//div[@id=\'finder_newcar\']/div[1]/div[2]/ul/li[1]/button/span'
+'//div[@id=\'finder_newcar\']/div[1]/div[2]/ul/li[2]/button/span'
+
+'//div[@id=\'finder_newcar\']/div[1]/div[2]/ul/li/button/span[contains(.,\''+this.i_ItemBrand+'\')]'
+
+===>'//div[@id=\'finder_newcar\']/div[1]/div/ul/li/button/span[contains(.,\''+this.i_ItemBrand+'\')]'
+되나 확인

@@ -1,0 +1,30 @@
+<T_1_브랜드명설정>
+//데이터 가공
+split(',')  // ,로 배열을 나눔
+map()    // 모든 요소에 () 값을 적용
+trim()    // 앞+뒤 공백 제거
+filter(b => b !== '');  //공백값은 제거
+
+
+<T_2_조회기간설정>
+this.y < 2023                                                   // 2023년 이전 X
+|| this.y > this.maxY                                           // or 올해 년도 이후 X
+|| (this.y == this.maxY && this.m > this.maxM)          // or 올해이지만 전월보타 크면 X
+2
+
+// 입력값 (비교용 숫자)
+this.y = Number(this.Year.replace("년", ""));
+this.m = Number(this.Month.replace("월", ""));
+
+// 오늘 기준
+this.maxY = new Date().getFullYear();
+this.maxM = new Date().getMonth(); // 전월 (0~11)
+
+<T_3_조회조건검색>
+// For문 이용해서 기본 6개 브랜드 선택
+==>  '//div[@id=\'finder_newcar\']/div[1]/div[1]/ul/li['+(this.i)+']/button/span'
+
+// If문 사용해서 입력받은 값이 있을 때, 없을 때 나누기
+// If문에서 입력받은 값이 있을 때 : For Each문 이용해서 배열 안의 값을 각각 클릭해주기!!
+
+
