@@ -1,0 +1,68 @@
+<Create a model response> : https://platform.openai.com/docs/api-reference/responses/create
+
+호출할 url
+https://api.openai.com/v1/responses
+
+api key  'Bearer'붙이기
+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
+
+호출방식
+post
+
+content type  
+application/json
+
+body : 
+'{
+    "model": "gpt-4.1",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {"type": "input_text", "text": "what is in this image?"},
+          {
+            "type": "input_image",
+            "image_url": "https://png.pngtree.com/background/20230517/original/pngtree-very-long-hair-feline-looking-ahead-to-the-sun-picture-image_2623945.jpg"
+          }
+        ]
+      }
+    ]
+  }'
+
+
+디버그 명령창
+ToJson(RESULT.Content).output[0].content[0].text
+
+
+
+<Create Image> : https://platform.openai.com/docs/api-reference/images/create
+
+body :
+'{
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "n": 1,         // 장 수
+    "size": "1024x1024"  //그림의 크기
+  }'
+
+디버그 명령창 url 추출
+ToJson(this.RequestContent.Content).data[0].url
+
+// SMTP
+<SendMail 속성 >
+HostName :  Naver 메일은 smtp.naver.com
+                     Google 메일은 smtp.gmail.com
+Port : naver,google 둘 다 587 사용
+ID : 이메일 전체 입력해도 되고 @ 앞만 입력해도 됨
+Password : 앱 비밀번호 입력
+Use SSL : 무조건 활성화
+Sender : 발신자 메일 주소 입력
+Receivers : 수신자 메일 주소 입력
+CCs, BCCs : 참조자, 비밀 참조자 입력. 없는 경우 입력 안 하거나 "으로 처리
+Subject, Body : 메일 제목 및 메일 내용 입력
+Attachements : 첨부파일 경로 입력. 여러개 입력 시에는 세미콜론(;)으로 구분
+ex) GetFileList 카드 'C:\\RPA\\뉴스크롤링_심화'
+    ==> ["C:\\RPA\\뉴스크롤링_심화\\(251217)일일_기사_레포트.xlsx",
+           "C:\\RPA\\뉴스크롤링_심화\\1_1.txt",
+           "C:\\RPA\\뉴스크롤링_심화\\일일_기사_레포트.xlsx"]  ==> ,를 ;로 바꿔야함
+   ==> ToJson(this.Filelist).join(';')  ==> 배열 사라지고 ,가 ;로 바뀜
